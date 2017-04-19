@@ -155,6 +155,12 @@ func doInternal(p PrefixCompleterInterface, line []rune, pos int, origLine []run
 		}
 
 		tmpLine = append(tmpLine, line[i:]...)
+
+		// check if its a path
+		// if strings.Contains(string(line), "..") || strings.Contains(string(line), "/") {
+		// 	return doInternal(lineCompleter, nil, 0, origLine)
+		// }
+
 		return doInternal(lineCompleter, tmpLine, len(tmpLine), origLine)
 	}
 
